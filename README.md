@@ -3,61 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>README Generator</title>
+  <title>GitHub README Generator</title>
   <style>
     body {
-      font-family: sans-serif;
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
     }
-    input, textarea {
+    label, input, textarea, select {
+      display: block;
       width: 100%;
-      margin: 8px 0 16px;
-      padding: 8px;
-      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+    textarea {
+      height: 100px;
     }
     button {
       padding: 10px 20px;
-      font-size: 1rem;
+      background-color: #007acc;
+      color: white;
+      border: none;
       cursor: pointer;
     }
     pre {
-      background: #f4f4f4;
-      padding: 15px;
+      background: #eee;
+      padding: 10px;
       white-space: pre-wrap;
-      word-break: break-word;
-      margin-top: 20px;
     }
   </style>
 </head>
 <body>
   <h1>README.md Generator</h1>
-  
-  <label>📌 Project Title</label>
-  <input type="text" id="title" />
+  <form id="readmeForm">
+    <label>Project Title</label>
+    <input type="text" id="title" required />
 
-  <label>📝 Description</label>
-  <textarea id="description" rows="4"></textarea>
+    <label>Description</label>
+    <textarea id="description" required></textarea>
 
-  <label>🚀 Installation Instructions</label>
-  <textarea id="installation" rows="3"></textarea>
+    <label>Installation</label>
+    <textarea id="installation"></textarea>
 
-  <label>⚙️ Usage</label>
-  <textarea id="usage" rows="3"></textarea>
+    <label>Usage</label>
+    <textarea id="usage"></textarea>
 
-  <label>💡 Features</label>
-  <textarea id="features" rows="3"></textarea>
+    <label>License</label>
+    <select id="license">
+      <option value="MIT">MIT</option>
+      <option value="GPL-3.0">GPL 3.0</option>
+      <option value="Apache-2.0">Apache 2.0</option>
+      <option value="None">None</option>
+    </select>
 
-  <label>🧪 Tests</label>
-  <textarea id="tests" rows="3"></textarea>
+    <label>GitHub Username</label>
+    <input type="text" id="github" required />
 
-  <label>📩 Contact (Email or GitHub)</label>
-  <input type="text" id="contact" />
+    <label>Email</label>
+    <input type="email" id="email" />
 
-  <button onclick="generateReadme()">Generate README</button>
+    <button type="button" onclick="generateReadme()">Generate</button>
+  </form>
 
-  <h2>📄 Preview</h2>
+  <h2>Generated README.md</h2>
   <pre id="output"></pre>
 
   <script>
@@ -66,35 +73,33 @@
       const description = document.getElementById("description").value;
       const installation = document.getElementById("installation").value;
       const usage = document.getElementById("usage").value;
-      const features = document.getElementById("features").value;
-      const tests = document.getElementById("tests").value;
-      const contact = document.getElementById("contact").value;
+      const license = document.getElementById("license").value;
+      const github = document.getElementById("github").value;
+      const email = document.getElementById("email").value;
 
-      const readme = `
-# ${title}
+      const licenseBadge = license !== "None" ? `![License](https://img.shields.io/badge/License-${license}-blue.svg)` : '';
 
-## 📋 Description
+      const readmeContent = `# ${title}
+
+${licenseBadge}
+
+## Description
 ${description}
 
-## 📦 Installation
-\`\`\`bash
-${installation}
-\`\`\`
+## Installation
+${installation || 'No installation steps provided.'}
 
-## ▶️ Usage
-${usage}
+## Usage
+${usage || 'No usage instructions provided.'}
 
-## ✨ Features
-${features}
+## License
+This project is licensed under the ${license} license.
 
-## 🧪 Tests
-${tests}
+## Contact
+GitHub: [${github}](https://github.com/${github})  
+${email ? `Email: ${email}` : ''}`
 
-## 📬 Contact
-${contact}
-      `;
-
-      document.getElementById("output").textContent = readme.trim();
+      document.getElementById("output").textContent = readmeContent;
     }
   </script>
 </body>
