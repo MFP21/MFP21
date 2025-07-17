@@ -1,106 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GitHub README Generator</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 20px;
-      background-color: #f9f9f9;
-    }
-    label, input, textarea, select {
-      display: block;
-      width: 100%;
-      margin-bottom: 15px;
-    }
-    textarea {
-      height: 100px;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: #007acc;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    pre {
-      background: #eee;
-      padding: 10px;
-      white-space: pre-wrap;
-    }
-  </style>
-</head>
-<body>
-  <h1>README.md Generator</h1>
-  <form id="readmeForm">
-    <label>Project Title</label>
-    <input type="text" id="title" required />
+<div align="center">
+  <img height="150" src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif"  />
+</div>
 
-    <label>Description</label>
-    <textarea id="description" required></textarea>
+###
 
-    <label>Installation</label>
-    <textarea id="installation"></textarea>
+<div align="center">
+  <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="linkedin logo"  />
+  <img src="https://img.shields.io/static/v1?message=Youtube&logo=youtube&label=&color=FF0000&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="youtube logo"  />
+  <img src="https://img.shields.io/static/v1?message=Twitter&logo=twitter&label=&color=1DA1F2&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="twitter logo"  />
+</div>
 
-    <label>Usage</label>
-    <textarea id="usage"></textarea>
+###
 
-    <label>License</label>
-    <select id="license">
-      <option value="MIT">MIT</option>
-      <option value="GPL-3.0">GPL 3.0</option>
-      <option value="Apache-2.0">Apache 2.0</option>
-      <option value="None">None</option>
-    </select>
+<div align="center">
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=maurodesouza.maurodesouza&"  />
+</div>
 
-    <label>GitHub Username</label>
-    <input type="text" id="github" required />
+###
 
-    <label>Email</label>
-    <input type="email" id="email" />
+<h1 align="center">hey there 👋</h1>
 
-    <button type="button" onclick="generateReadme()">Generate</button>
-  </form>
+###
 
-  <h2>Generated README.md</h2>
-  <pre id="output"></pre>
+<h3 align="left">👩‍💻  About Me</h3>
 
-  <script>
-    function generateReadme() {
-      const title = document.getElementById("title").value;
-      const description = document.getElementById("description").value;
-      const installation = document.getElementById("installation").value;
-      const usage = document.getElementById("usage").value;
-      const license = document.getElementById("license").value;
-      const github = document.getElementById("github").value;
-      const email = document.getElementById("email").value;
+###
 
-      const licenseBadge = license !== "None" ? `![License](https://img.shields.io/badge/License-${license}-blue.svg)` : '';
+<p align="left">I'm ... from ....<br><br>- 🔭 I’m working as ...<br>- 📚 I'm currently learning ...<br>- ⚡ In my free time I ...</p>
 
-      const readmeContent = `# ${title}
+###
 
-${licenseBadge}
+<h3 align="left">🛠 Language and tools</h3>
 
-## Description
-${description}
+###
 
-## Installation
-${installation || 'No installation steps provided.'}
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg" height="40" alt="go logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg" height="40" alt="rust logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-plain-wordmark.svg" height="40" alt="ruby logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-plain-wordmark.svg" height="40" alt="dot-net logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg" height="40" alt="firebase logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-line-wordmark.svg" height="40" alt="amazonwebservices logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/circleci/circleci-plain.svg" height="40" alt="circleci logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" height="40" alt="kubernetes logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain-wordmark.svg" height="40" alt="docker logo"  />
+</div>
 
-## Usage
-${usage || 'No usage instructions provided.'}
+###
 
-## License
-This project is licensed under the ${license} license.
+<h3 align="left">🔥   My Stats :</h3>
 
-## Contact
-GitHub: [${github}](https://github.com/${github})  
-${email ? `Email: ${email}` : ''}`
+###
 
-      document.getElementById("output").textContent = readmeContent;
-    }
-  </script>
-</body>
-</html>
+<div align="center">
+  <img src="https://streak-stats.demolab.com?user=maurodesouza&locale=en&mode=daily&theme=dark&hide_border=false&border_radius=5&order=3" height="220" alt="streak graph"  />
+</div>
+
+###
